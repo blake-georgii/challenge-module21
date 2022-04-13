@@ -32,7 +32,7 @@ const userSchema = new Schema(
   }
 );
 
-// hash user password
+// hash user password with pre hook on signup and update
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
